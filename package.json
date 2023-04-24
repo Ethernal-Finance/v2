@@ -1,15 +1,23 @@
 {
   "name": "v1.2",
   "version": "0.1.0",
+  "homepage": "/CIADAPP",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "bootstrap": "^5.2.3",
+    "ethers": "^6.3.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "styled-components": "^5.3.10",
+    "web-vitals": "^2.1.4",
+    "web3": "^1.9.0",
+    "web3modal": "^1.9.12"
   },
   "scripts": {
     "start": "react-scripts start",
