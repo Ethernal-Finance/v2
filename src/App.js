@@ -3,10 +3,13 @@ import Web3 from "web3";
 import "./Images/Logo2.png";
 import abi from "./abi.json";
 
+
 const contractAddress = "0x55Be3e1F81Fc6d5169882339EcC0Fb8460f91de1";
 const tokenAddress = "0x55Be3e1F81Fc6d5169882339EcC0Fb8460f91de1";
 const tokenSymbol = "CIA";
 const tokenDecimal = 18;
+
+
 
 function App() {
   const [web3, setWeb3] = useState(null);
@@ -14,6 +17,8 @@ function App() {
   const [account, setAccount] = useState(null);
   const [balance, setBalance] = useState(null);
   const [reinvest, setReinvest] = useState(false);
+  const [withdrawableDividends, setWithdrawableDividends] = useState(0);
+  
 
   useEffect(() => {
     async function connectToWeb3() {
@@ -26,15 +31,14 @@ function App() {
           setContract(contract);
           const accounts = await web3.eth.getAccounts();
           setAccount(accounts[0]);
-          const balanceInWei = await contract.methods
-            .balanceOf(accounts[0])
-            .call();
+          const balanceInWei = await contract.methods.balanceOf(accounts[0]).call();
           const balanceInEther = web3.utils.fromWei(balanceInWei, "ether");
           setBalance(balanceInEther);
-          const isReinvest = await contract.methods
-            .isReinvest(accounts[0])
-            .call();
+          const isReinvest = await contract.methods.isReinvest(accounts[0]).call();
           setReinvest(isReinvest);
+          const withdrawableDividendInWei = await contract.methods.withdrawableDividendOf(accounts[0]).call();
+        const withdrawableDividendInEther = web3.utils.fromWei(withdrawableDividendInWei, "ether");
+        setWithdrawableDividends(withdrawableDividendInEther);
         } catch (error) {
           console.error(error);
         }
@@ -42,7 +46,7 @@ function App() {
     }
 
     connectToWeb3();
-  }, []);
+  }, [account]);
 
   async function claim() {
     try {
@@ -111,6 +115,9 @@ function App() {
             <div className="flex-container">
                 <div className="flex-items"><div className="account">Account</div> {account}</div>
                 <div className="flex-items"> <div className="balance">Balance</div> {balance} CIA</div>
+                <div className="flex-items">
+              <div className="account">Withdrawable Dividends</div> {withdrawableDividends}
+            </div>
               </div>
               
         </div>
