@@ -114,9 +114,9 @@ function App() {
         <div id="content">
             <div className="flex-container">
                 <div className="flex-items"><div className="account">Account</div> {account}</div>
-                <div className="flex-items"> <div className="balance">Balance</div> {balance} CIA</div>
+                <div className="flex-items"> <div className="balance">Token Balance</div> {balance} CIA</div>
                 <div className="flex-items">
-              <div className="account">Withdrawable Dividends</div> {withdrawableDividends}
+              <div className="account">Rewards Balance</div> {withdrawableDividends} BNB
             </div>
               </div>
               
