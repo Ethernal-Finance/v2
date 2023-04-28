@@ -7,15 +7,10 @@
 body {
   font-family: sans-serif;
   background: rgb(26, 26, 26);
-  background: linear-gradient(
-    324deg,
-    rgba(26, 26, 26, 1) 0%,
-    rgba(64, 55, 38, 1) 50%,
-    rgba(129, 90, 36, 1) 100%
-  );
+  background: linear-gradient(324deg, rgb(26, 26, 26) 0%, rgb(64, 55, 38) 50%, rgb(129, 90, 36) 100%);
   color: #fff;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -31,55 +26,44 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.main-flexbox {
+.flexbox-container .main-flexbox {
   background-color: #1a1a1a;
   border-radius: 15px;
   padding: 25px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-
-.headerwrap {
-}
-.header {
+.flexbox-container .main-flexbox .header {
   display: flex;
   justify-content: center;
 }
-
-.header__logo {
+.flexbox-container .main-flexbox .header__logo {
   width: 400px;
 }
-
-.togglewrap {
+.flexbox-container .main-flexbox .togglewrap {
   padding-top: 25px;
 }
-
-.toggle-container {
+.flexbox-container .main-flexbox .togglewrap .toggle-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.toggle-text {
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle-text {
   margin: 0 10px;
   font-size: 20px;
   color: #fff;
 }
-
-.toggle {
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 32px;
 }
-.toggle input {
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-.toggle .knob {
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle .knob {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -90,7 +74,7 @@ body {
   transition: 0.2s;
   border-radius: 30px;
 }
-.toggle .knob:before {
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle .knob:before {
   background-color: #070505;
   position: absolute;
   content: "";
@@ -101,45 +85,37 @@ body {
   transition: 0.2s;
   border-radius: 30px;
 }
-.toggle input:checked + .knob {
-  background-color: #f2af46aa;
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle input:checked + .knob {
+  background-color: rgba(242, 175, 70, 0.6666666667);
 }
-.toggle input:focus + .knob {
-  box-shadow: 0 0 1px #2196f3;
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle input:focus + .knob {
+  box-shadow: 0 0 1px #2196F3;
 }
-.toggle input:checked + .knob:before {
+.flexbox-container .main-flexbox .togglewrap .toggle-container .toggle input:checked + .knob:before {
   background-color: #ffffff;
   -webkit-transform: translateX(28px);
   -ms-transform: translateX(28px);
   transform: translateX(28px);
 }
-
-.contentwrap {
+.flexbox-container .main-flexbox .contentwrap {
   padding-top: 25px;
   text-align: center;
 }
-
-.content {
+.flexbox-container .main-flexbox .contentwrap .content .flex-items {
+  font-size: 12px;
 }
-
-.flex-items {
-  font-size: 14px;
-}
-
-.title {
+.flexbox-container .main-flexbox .contentwrap .content .flex-items .title {
   color: #f2af46;
 }
-
-.buttonswrap {
+.flexbox-container .main-flexbox .buttonswrap {
   padding-top: 25px;
 }
-.button-container {
+.flexbox-container .main-flexbox .buttonswrap .button-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.button {
+.flexbox-container .main-flexbox .buttonswrap .button-container .button {
   padding: 10px 20px;
   background-color: #f2af46;
   color: #1a1a1a;
@@ -149,9 +125,48 @@ body {
   transition: all 0.3s;
   margin: 10px;
 }
-
-.button:hover {
+.flexbox-container .main-flexbox .buttonswrap .button-container .button:hover {
   background-color: #000;
-  color: #f2af46;
+  color: #f2af46;}
+
+  
+  /* Desktop styles */
+@media (min-width: 992px) {
+  .flexbox-container .main-flexbox {
+    width: 600px;
+  }
+  .header__logo {
+    width: 200px;
+  }
 }
 
+/* Tablet styles */
+@media (max-width: 991px) and (min-width: 768px) {
+
+  .flexbox-container .main-flexbox .header__logo {
+    width: 220px;
+   }
+   .flexbox-container .main-flexbox .contentwrap .content .flex-items {
+    font-size: 12px;
+    width: 95%;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+ 
+  .flexbox-container .main-flexbox .header__logo {
+    width: 200px;
+   }
+
+   .main-flexbox{
+      width: 95%;
+      padding: 10px;
+   }
+   .flexbox-container .main-flexbox .contentwrap .content .flex-items {
+    font-size: 12px;
+    width: 95%;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */
